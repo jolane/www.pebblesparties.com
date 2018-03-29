@@ -8,16 +8,24 @@ import Heading from '../components/Heading'
 
 const IndexPage = () => (
   <div>
-    <Banner src="/images/secondary_banner.jpg" alt="Banner Image, Little girl + pattern" />
+    <Banner
+      src="/images/secondary_banner.jpg"
+      alt="Banner Image, Little girl + pattern"
+    />
 
-    <Heading>
-      Website Coming Soon!
-    </Heading>
+    <Heading>Website Coming Soon!</Heading>
     <Text>
-      <strong>Contact Us</strong><br />
+      <strong>Contact Us</strong>
+      <br />
       Bek Lah (Events Director)<br />
       Phone: 0433 911 584<br />
-      Email: <a href="mailto:pebblesparties@gmail.com" title="pebblesparties@gmail.com">pebblesparties@gmail.com</a>
+      Email:{' '}
+      <a
+        href="mailto:pebblesparties@gmail.com"
+        title="pebblesparties@gmail.com"
+      >
+        pebblesparties@gmail.com
+      </a>
     </Text>
   </div>
 )

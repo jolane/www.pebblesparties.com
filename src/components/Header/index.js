@@ -6,22 +6,21 @@ import Logo from '../Logo'
 
 const Header = () => (
   <Container>
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: 'white',
-            textDecoration: 'none',
-          }}
-        >
-          <Logo />
-        </Link>
-      </h1>
+    <h1 style={{ margin: 0 }}>
+      <Link
+        to="/"
+        style={{
+          color: 'white',
+          textDecoration: 'none',
+        }}
+      >
+        <Logo />
+      </Link>
+    </h1>
   </Container>
 )
 
 export default Header
-
 
 const Container = styled.header`
   width: 100%;

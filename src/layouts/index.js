@@ -6,7 +6,6 @@ import { injectGlobal } from 'styled-components'
 import Header from '../components/Header'
 import { colors } from '../styles/vars'
 
-
 injectGlobal`
   @font-face {font-family: 'MuseoSans-700';src: url('/webfonts/360C64_0_0.eot');src: url('/webfonts/360C64_0_0.eot?#iefix') format('embedded-opentype'),url('/webfonts/360C64_0_0.woff2') format('woff2'),url('/webfonts/360C64_0_0.woff') format('woff'),url('/webfonts/360C64_0_0.ttf') format('truetype'),url('/webfonts/360C64_0_0.svg#wf') format('svg');}
   @font-face {font-family: 'MuseoSans-300';src: url('/webfonts/360C64_1_0.eot');src: url('/webfonts/360C64_1_0.eot?#iefix') format('embedded-opentype'),url('/webfonts/360C64_1_0.woff2') format('woff2'),url('/webfonts/360C64_1_0.woff') format('woff'),url('/webfonts/360C64_1_0.ttf') format('truetype'),url('/webfonts/360C64_1_0.svg#wf') format('svg');}
@@ -37,20 +36,21 @@ injectGlobal`
   }
 `
 
-
 const TemplateWrapper = ({ children }) => (
   <div>
     <Helmet
       title="Pebbles Parties"
       meta={[
-        { name: 'description', content: 'Professional and highly-trained kids\' party entertainment. Facepainting, balloons, games, catering and more! Custom packages to suit all occasions and budget.' },
+        {
+          name: 'description',
+          content:
+            "Professional and highly-trained kids' party entertainment. Facepainting, balloons, games, catering and more! Custom packages to suit all occasions and budget.",
+        },
         { name: 'keywords', content: 'sample, something' },
       ]}
     />
     <Header />
-    <div>
-      {children()}
-    </div>
+    <div>{children()}</div>
   </div>
 )
 
