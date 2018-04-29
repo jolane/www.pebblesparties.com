@@ -1,57 +1,70 @@
 import React from 'react'
 import Link from 'gatsby-link'
 
-import styled, { ThemeProvider } from 'styled-components'
-import { colors } from '../styles/vars'
-import theme from '../styles/theme'
+import styled from 'styled-components'
+
+import { colors } from '../styles/theme'
 
 import Heading from '../components/Heading'
+import SubHeading from '../components/SubHeading'
+import SuperHeading from '../components/SuperHeading'
 import Nav from '../components/Navigation'
+import Banner from '../components/Banner'
 import Arrow from '../components/Arrow'
 import SocialMediaIcons from '../components/SocialMediaIcon'
+import ServicesCards from '../components/Services/ServicesCards'
+import Spacer from '../components/Spacer'
+import LightBackground from '../components/LightBackground'
+import Textimonials from '../components/Testimonials/Testimonials'
+import GalleryInclude from '../components/GalleryInclude'
+import gallery from './gallery'
 
-
-const IndexPage = () => (
-  <ThemeProvider theme={theme}>
-    <div>
-      <Nav />
-      <Banner
-        src="/images/secondary_banner.jpg"
-        alt="Banner Image, Little girl + pattern"
-      />
-      <Heading>Energy, enthusiasm and passion for creating joyful moments is what we’re all about.</Heading>
-      <Heading dark>Jolane</Heading>
-      <Text>
-        <strong>Contact Us</strong>
-        <br />
-        Bek Lah (Events Director)<br />
-        Phone: 0433 911 584<br />
-        Email:{' '}
-        <a
-          href="mailto:pebblesparties@gmail.com"
-          title="pebblesparties@gmail.com"
-        >
-          pebblesparties@gmail.com
-        </a>
-      </Text>
-
-      <Arrow up />
-      <Arrow right />
-      <Arrow down />
-      <Arrow left />
-
-      <SocialMediaIcons href="http://facebook.com" type="facebook" />
-      <SocialMediaIcons href="http://facebook.com" type="instagram" />
-      <SocialMediaIcons href="http://facebook.com" type="youtube" />
-    </div>
-  </ThemeProvider>
+const IndexPage = ({ data }) => (
+  <div>
+    <Nav />
+    <Banner
+      src="/images/secondary_banner.jpg"
+      alt="Banner Image, Little girl + pattern"
+    />
+    <Spacer height="30" />
+    <Heading>
+      Energy, enthusiasm and passion for creating joyful moments is what we’re
+      all about.
+    </Heading>
+    <ServicesCards />
+    <Spacer height="50" />
+    <LightBackground>
+      <SuperHeading>About us</SuperHeading>
+      <Heading dark>
+        We are dedicated to creating the most memorable and exciting day for
+        your child
+      </Heading>
+      <SubHeading dark>
+        With over 30 combined years of party hosting experience- we know that
+        it’s all about capturing the imagination of your child and transporting
+        them to a magical place.
+      </SubHeading>
+      <SubHeading dark>
+        <Link to="/about-us">Find out more</Link>
+      </SubHeading>
+    </LightBackground>
+    <GalleryInclude data={data} />
+    <Textimonials />
+  </div>
 )
 
 export default IndexPage
 
-const Banner = styled.img`
-  display: block;
-  width: 100%;
+export const queryIndex235 = graphql`
+  query IndexPageQuery235 {
+    allImageSharp {
+      edges {
+        node {
+          ...GalleryImageSharp
+        }
+      }
+    }
+  }
 `
 
 const Text = styled.div`

@@ -2,9 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import R from 'ramda'
 
-export default (props) => (
-	<Arrow {...props} />
-)
+export default props => <Arrow {...props} />
 
 const Arrow = styled.button`
 	display: block;
@@ -31,18 +29,25 @@ const Arrow = styled.button`
 		transform: rotate(135deg);
 		margin-left: -0.9em;
 		box-sizing: border-box;
+		transition: all 0.1s linear;
 
-		${props => props.up && `
+		${props =>
+      props.up &&
+      `
 			transform: rotate(45deg);
 			margin: 0 0 -0.9em 0;
 		`}
 
-		${props => props.down && `
+		${props =>
+      props.down &&
+      `
 			transform: rotate(-135deg);
 			margin: -0.9em 0 0 0;
 		`}
 
-		${props => props.left && `
+		${props =>
+      props.left &&
+      `
 			transform: rotate(-45deg);
 			margin: 0 -0.9em 0 0;
 		`}
@@ -50,12 +55,12 @@ const Arrow = styled.button`
 
 	&:hover {
 		background-color: #4A4A4A;
-		background: ${props => R.path(['theme', 'Arrow', 'hover'], props) };
+		background: ${props => R.path(['theme', 'Arrow', 'hover'], props)};
 	}
 
 	&:active {
 		transform: scale(0.95);
 	}
 	background: black;
-	background: ${props => R.path(['theme', 'Arrow', 'background'], props) };
+	background: ${props => R.path(['theme', 'Arrow', 'background'], props)};
 `

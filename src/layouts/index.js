@@ -1,10 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
-import { injectGlobal } from 'styled-components'
+import { injectGlobal, ThemeProvider } from 'styled-components'
 
 import Header from '../components/Header'
-import { colors } from '../styles/vars'
+import Footer from '../components/Footer'
+import theme, { colors } from '../styles/theme'
 
 injectGlobal`
   @font-face {font-family: 'MuseoSans-700';src: url('/webfonts/360C64_0_0.eot');src: url('/webfonts/360C64_0_0.eot?#iefix') format('embedded-opentype'),url('/webfonts/360C64_0_0.woff2') format('woff2'),url('/webfonts/360C64_0_0.woff') format('woff'),url('/webfonts/360C64_0_0.ttf') format('truetype'),url('/webfonts/360C64_0_0.svg#wf') format('svg');}
@@ -34,24 +35,35 @@ injectGlobal`
     font-family: 'MuseoSans-100', san-serif;
     color: ${colors.black};
   }
+
+  a {
+    color: inherit;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+  }
 `
 
 const TemplateWrapper = ({ children }) => (
-  <div>
-    <Helmet
-      title="Pebbles Parties"
-      meta={[
-        {
-          name: 'description',
-          content:
-            "Professional and highly-trained kids' party entertainment. Facepainting, balloons, games, catering and more! Custom packages to suit all occasions and budget.",
-        },
-        { name: 'keywords', content: 'sample, something' },
-      ]}
-    />
-    <Header />
-    <div>{children()}</div>
-  </div>
+  <ThemeProvider theme={theme}>
+    <div>
+      <Helmet
+        title="Pebbles Parties"
+        meta={[
+          {
+            name: 'description',
+            content:
+              "Professional and highly-trained kids' party entertainment. Facepainting, balloons, games, catering and more! Custom packages to suit all occasions and budget.",
+          },
+          { name: 'keywords', content: 'sample, something' },
+        ]}
+      />
+      <Header />
+      <div>{children()}</div>
+      <Footer />
+    </div>
+  </ThemeProvider>
 )
 
 TemplateWrapper.propTypes = {
