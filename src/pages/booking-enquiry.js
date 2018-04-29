@@ -318,7 +318,7 @@ class BookingPage extends React.Component {
                       Themed dressing up props (masks, capes, fairy wings etc.)
                     </Radio>
                   </td>
-                  <td>$xx</td>
+                  <td>$xxx</td>
                 </tr>
                 <tr>
                   <td>
@@ -326,7 +326,7 @@ class BookingPage extends React.Component {
                       Themed costume character appearance
                     </Radio>
                   </td>
-                  <td>$xx</td>
+                  <td>$xxx</td>
                 </tr>
               </Table>
             </EnquiryBlock>
