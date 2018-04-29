@@ -6,7 +6,7 @@
   "dependencies": {
     "flickity": "^2.1.1",
     "gatsby": "^1.9.253",
-    "gatsby-cli": "^1.1.49",
+    "gatsby-cli": "^1.1.51",
     "gatsby-image": "^1.0.47",
     "gatsby-link": "^1.6.40",
     "gatsby-plugin-google-analytics": "^1.0.24",
