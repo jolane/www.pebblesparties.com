@@ -21,7 +21,7 @@ export const items = [
 
 export default props => (
   <Nav>
-    <List>{items.map((v, i) => <Item key={i}>{v}</Item>)}</List>
+    <List>{items.map((v, i) => <Item key={v}>{v}</Item>)}</List>
   </Nav>
 )
 

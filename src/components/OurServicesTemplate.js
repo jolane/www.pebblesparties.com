@@ -2,13 +2,13 @@ import React from 'react'
 import styled from 'styled-components'
 import Link from 'gatsby-link'
 
-import Nav from '../../components/Navigation'
-import Banner from '../../components/Banner'
-import Heading from '../../components/Heading'
-import SubHeading from '../../components/SubHeading'
-import General from '../../components/General'
-import Spacer from '../../components/Spacer'
-import StartPlanningPanel from '../../components/StartPlanningPanel'
+import Nav from './Navigation'
+import Banner from './Banner'
+import Heading from './Heading'
+import SubHeading from './SubHeading'
+import General from './General'
+import Spacer from './Spacer'
+import StartPlanningPanel from './StartPlanningPanel'
 
 export default props => (
   <Wrapper>

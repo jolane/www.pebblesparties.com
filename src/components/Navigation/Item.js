@@ -24,6 +24,7 @@ export default props => {
         <SubNav>
           {subItems.map(item => (
             <A
+              key={item}
               to={`/${slugify(navItem, { lower: true })}/${slugify(item, {
                 lower: true,
               })}`}

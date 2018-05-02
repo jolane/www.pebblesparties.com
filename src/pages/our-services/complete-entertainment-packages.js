@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Link from 'gatsby-link'
 
-import OurServicesTemplate from './OurServicesTemplate'
+import OurServicesTemplate from '../../components/OurServicesTemplate'
 
 const data = {
   title: `Complete Entertainment Packages`,

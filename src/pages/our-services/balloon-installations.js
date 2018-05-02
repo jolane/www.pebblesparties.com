@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import OurServicesTemplate from './OurServicesTemplate'
+import OurServicesTemplate from '../../components/OurServicesTemplate'
 
 const data = {
   title: 'Balloon Installations',

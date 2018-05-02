@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import Flickity from 'flickity'
 import Arrow from '../../components/Arrow'
 import 'flickity/css/flickity.css'
 
@@ -50,6 +49,7 @@ class Testimonials extends React.Component {
     }
   }
   componentDidMount() {
+    const Flickity = require('flickity')
     Flickity.prototype._createResizeClass = function() {
       this.element.classList.add('flickity-resize')
     }

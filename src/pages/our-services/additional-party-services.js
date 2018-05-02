@@ -1,6 +1,6 @@
 import React from 'react'
 
-import OurServicesTemplate from './OurServicesTemplate'
+import OurServicesTemplate from '../../components/OurServicesTemplate'
 
 const data = {
   title: `Additional Party Services`,

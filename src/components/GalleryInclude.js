@@ -2,20 +2,19 @@ import React from 'react'
 import styled from 'styled-components'
 import Link from 'gatsby-link'
 import Img from 'gatsby-image'
-import Flickity from 'flickity'
 import 'flickity/css/flickity.css'
 
 import SuperHeading from './SuperHeading'
 import Spacer from './Spacer'
 import SubHeading from './SubHeading'
 import Arrow from './Arrow'
-
 class GalleryInclude extends React.Component {
   constructor() {
     super()
   }
 
   componentDidMount() {
+    const Flickity = require('flickity')
     this.flkty = new Flickity(this.slider, {
       wrapAround: true,
       cellAlign: 'center',
@@ -31,15 +30,14 @@ class GalleryInclude extends React.Component {
   }
 
   render() {
-    const images = this.props.data.allImageSharp.edges
     return (
       <Wrapper>
         <Spacer height={40} />
         <SuperHeading>Gallery</SuperHeading>
         <SliderWrapper>
           <Slider innerRef={el => (this.slider = el)}>
-            {images.map(item => (
-              <Slide key={item.node.originalName}>
+            {this.props.images.map(item => (
+              <Slide key={item.node.sizes.originalName}>
                 <div>
                   <Img sizes={item.node.sizes} />
                 </div>
@@ -64,20 +62,6 @@ class GalleryInclude extends React.Component {
 }
 
 export default GalleryInclude
-
-export const galleryIncludeFragment = graphql`
-  fragment GalleryImageSharp on ImageSharp {
-    sizes(maxWidth: 800) {
-      base64
-      src
-      srcSet
-      srcWebp
-      srcSetWebp
-      originalImg
-      originalName
-    }
-  }
-`
 
 const Wrapper = styled.div`
   width: 100%;

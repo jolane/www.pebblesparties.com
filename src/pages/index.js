@@ -48,7 +48,7 @@ const IndexPage = ({ data }) => (
         <Link to="/about-us">Find out more</Link>
       </SubHeading>
     </LightBackground>
-    <GalleryInclude data={data} />
+    <GalleryInclude images={data.allImageSharp.edges} />
     <Textimonials />
   </div>
 )
@@ -60,7 +60,15 @@ export const queryIndex235 = graphql`
     allImageSharp {
       edges {
         node {
-          ...GalleryImageSharp
+          sizes(maxWidth: 800) {
+            base64
+            src
+            srcSet
+            srcWebp
+            srcSetWebp
+            originalImg
+            originalName
+          }
         }
       }
     }
