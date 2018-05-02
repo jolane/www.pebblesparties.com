@@ -48,26 +48,28 @@ const IndexPage = ({ data }) => (
         <Link to="/about-us">Find out more</Link>
       </SubHeading>
     </LightBackground>
-    <GalleryInclude images={data.allImageSharp.edges} />
+    <GalleryInclude images={data.allFile.edges} />
     <Textimonials />
   </div>
 )
 
 export default IndexPage
 
-export const queryIndex235 = graphql`
-  query IndexPageQuery235 {
-    allImageSharp {
+export const queryIndex = graphql`
+  query IndexPageQuery {
+    allFile(filter: { relativePath: { glob: "*.jpg" } }) {
       edges {
         node {
-          sizes(maxWidth: 800) {
-            base64
-            src
-            srcSet
-            srcWebp
-            srcSetWebp
-            originalImg
-            originalName
+          childImageSharp {
+            sizes(maxWidth: 800) {
+              base64
+              src
+              srcSet
+              srcWebp
+              srcSetWebp
+              originalImg
+              originalName
+            }
           }
         }
       }

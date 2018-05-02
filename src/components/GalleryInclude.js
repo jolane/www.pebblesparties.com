@@ -37,9 +37,9 @@ class GalleryInclude extends React.Component {
         <SliderWrapper>
           <Slider innerRef={el => (this.slider = el)}>
             {this.props.images.map(item => (
-              <Slide key={item.node.sizes.originalName}>
+              <Slide key={item.node.childImageSharp.sizes.originalName}>
                 <div>
-                  <Img sizes={item.node.sizes} />
+                  <Img sizes={item.node.childImageSharp.sizes} />
                 </div>
               </Slide>
             ))}
