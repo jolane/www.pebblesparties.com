@@ -18,10 +18,12 @@ class BookingPage extends React.Component {
   constructor() {
     super()
     this.state = {
+      numberOfKids: 0,
       pricePerChild: 0,
       totalPrice: 0,
     }
   }
+  updateCalc() {}
   render() {
     return (
       <div>
@@ -331,7 +333,10 @@ class BookingPage extends React.Component {
               </Table>
             </EnquiryBlock>
           </Blocks>
-          <PriceEstimatePanel />
+          <PriceEstimatePanel
+            pricePerChild={this.state.pricePerChild}
+            totalPrice={this.state.totalPrice}
+          />
         </Grid>
       </div>
     )
