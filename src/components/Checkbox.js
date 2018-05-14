@@ -5,14 +5,8 @@ import slugify from 'slugify'
 import { colors } from '../styles/theme'
 
 export default props => (
-  <Container {...props}>
-    <Input
-      type="checkbox"
-      name={props.name}
-      id={props.name + slugify(props.value)}
-      value={props.value}
-    />
-    <Label htmlFor={props.name + slugify(props.value)} large={props.large}>
+  <Container {...props} onClick={props.onClickCheckbox}>
+    <Label large={props.large} checked={props.checked}>
       {props.children}
     </Label>
   </Container>
@@ -37,18 +31,7 @@ const Container = styled.div`
   `};
 `
 
-const Input = styled.input`
-  position: absolute;
-  z-index: 10;
-  display: block;
-  padding: 0.5em;
-  appearance: none;
-  top: 0.1em;
-  left: 0.1em;
-  opacity: 0;
-`
-
-const Label = styled.label`
+const Label = styled.div`
   line-height: 1em;
   cursor: pointer;
   color: inherit;
@@ -64,10 +47,12 @@ const Label = styled.label`
     position: absolute;
     top: 0;
     left: 0;
-    input:checked + & {
+    ${props =>
+      props.checked &&
+      `
       border-width: 0.2em;
       background-color: #ffffff;
-    }
+    `};
   }
 
   ${props =>

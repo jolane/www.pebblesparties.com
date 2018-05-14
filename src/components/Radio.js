@@ -1,19 +1,21 @@
 import React from 'react'
 import styled from 'styled-components'
-import slugify from 'slugify'
 
 import { colors } from '../styles/theme'
 
-export default props => (
-  <Container {...props}>
-    <Input
-      type="radio"
-      name={props.name}
-      id={props.name + slugify(props.value)}
-      value={props.value}
-    />
-    <Label htmlFor={props.name + slugify(props.value)} large={props.large}>
-      {props.children}
+export default ({
+  onClickRadio,
+  name,
+  value,
+  checked,
+  large,
+  children,
+  inline,
+}) => (
+  <Container onClick={onClickRadio} inline={inline} large={large}>
+    <Input type="radio" checked={checked} />
+    <Label large={large} checked={checked}>
+      {children}
     </Label>
   </Container>
 )
@@ -69,6 +71,12 @@ const Label = styled.label`
       border-width: 0.3em;
       background-color: #ffffff;
     }
+    ${props =>
+      props.checked &&
+      `
+      border-width: 0.3em;
+      background-color: #ffffff;
+    `};
   }
 
   ${props =>

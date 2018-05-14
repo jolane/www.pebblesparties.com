@@ -34,8 +34,14 @@ const PriceField = styled.div`
   font-size: 4.2em;
   text-align: center;
   height: 1.43em;
-  line-height: 1.43em;
-  display: block;
+  line-height: 0.95;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  margin-top: -0.7em;
+  box-sizing: border-box;
+  padding-top: 0.4em;
   &:before {
     content: '$';
   }

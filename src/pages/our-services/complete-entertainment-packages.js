@@ -16,8 +16,21 @@ const data = {
 export default () => {
   return (
     <OurServicesTemplate {...data}>
-      <h3 className="dark">Up to 15 kids:</h3>
-      <h5>1 hour party with 1 host = $200</h5>
+      <h3 className="dark">Up to 10 - 15 kids:</h3>
+      <h5>1 hour party with 1 host = $180</h5>
+      <p>
+        <strong>Includes 2 of the following:</strong>
+      </p>
+      <ul>
+        <li>Face painting</li>
+        <li>Balloon Twisting</li>
+        <li>
+          Musical games and obstacle courses which all the kids can enjoy
+          together
+        </li>
+        <li>PLUS a gift bag for each child to take home</li>
+      </ul>
+      <h5>1.5 hour party with 1 host = $240</h5>
       <p>
         <strong>Includes 2 of the following:</strong>
       </p>
@@ -31,20 +44,15 @@ export default () => {
         <li>PLUS a gift bag for each child to take home</li>
       </ul>
 
-      <h5>2 hour party with 1 host = $280</h5>
+      <h5>2 hour party with 1 host = $320</h5>
       <p>
         <strong>Includes:</strong>
       </p>
       <ul>
-        <li>Face painting,</li>
-        <li>Balloon Twisting</li>
-        <li>
-          Musical games and obstacle courses which all the kids can enjoy
-          together
-        </li>
+        <li>Face painting, balloon twisting and party games</li>
         <li>PLUS a gift bag for each child to take home</li>
       </ul>
-      <h3 className="dark">Up to 25 kids:</h3>
+      <h3 className="dark">Up to 20 - 25 kids:</h3>
       <h5>1 hour party with 2 hosts = $325</h5>
       <p>
         <strong>Includes 2 of the following:</strong>
@@ -58,7 +66,7 @@ export default () => {
         </li>
         <li>PLUS a gift bag for each child to take home</li>
       </ul>
-      <h5>2 hour party with 2 hosts = $425</h5>
+      <h5>2 hour party with 2 hosts = $400</h5>
       <p>
         <strong>Includes:</strong>
       </p>
@@ -72,7 +80,7 @@ export default () => {
         </li>
         <li>PLUS a gift bag for each child to take home</li>
       </ul>
-      <h3 className="dark">More than 30 kids?</h3>
+      <h3 className="dark">More than 25 kids?</h3>
       <h5>
         No problem!{' '}
         <Link to="/contact-us" title="Contact Us">
