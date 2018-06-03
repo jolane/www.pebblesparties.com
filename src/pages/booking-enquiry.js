@@ -29,25 +29,25 @@ class BookingPage extends React.Component {
 
     // bind away
     this.updateNumberOfChildren = this.updateNumberOfChildren.bind(this)
-    this.updatePackageCost = this.updatePackageCost.bind(this)
     this.updateOption = this.updateOption.bind(this)
     this._calulateOptionCost = this._calulateOptionCost.bind(this)
   }
   updateNumberOfChildren(numberOfChildren) {
     this.setState({ numberOfChildren })
   }
-  updatePackageCost(packageCost) {
-    this.setState({ packageCost })
-  }
 
-  updateOption(optionName, optionValue) {
+  updateOption(optionName, optionValue, optionDescription) {
     let updatedOptions = []
 
     // options does not exists
     if (!this.state.options.find(o => o.name === optionName)) {
       updatedOptions = [
         ...this.state.options,
-        { name: optionName, value: optionValue },
+        {
+          name: optionName,
+          value: optionValue,
+          description: optionDescription,
+        },
       ]
 
       // option exists but & value is equal
@@ -59,7 +59,7 @@ class BookingPage extends React.Component {
       const index = this.state.options.findIndex(io => io.name === optionName)
       updatedOptions = [
         ...this.state.options.slice(0, index),
-        { name: optionName, value: null },
+        { name: optionName, value: null, description: optionDescription },
         ...this.state.options.slice(index + 1),
       ]
       // update value
@@ -67,13 +67,16 @@ class BookingPage extends React.Component {
       const index = this.state.options.findIndex(io => io.name === optionName)
       updatedOptions = [
         ...this.state.options.slice(0, index),
-        { name: optionName, value: optionValue },
+        {
+          name: optionName,
+          value: optionValue,
+          description: optionDescription,
+        },
         ...this.state.options.slice(index + 1),
       ]
     }
 
     this.setState({ options: updatedOptions })
-    console.log(updatedOptions)
   }
 
   _calulateOptionCost(object) {
@@ -104,7 +107,7 @@ class BookingPage extends React.Component {
       <div>
         <Nav />
         <Banner
-          src="/images/secondary_banner.jpg"
+          image="/images/banner13.jpg"
           alt="Banner Image, Little girl + pattern"
         />
         <Spacer height={50} />
@@ -119,10 +122,17 @@ class BookingPage extends React.Component {
           <Blocks>
             <CompleteEntertainmentPackages
               updateNumberOfChildren={this.updateNumberOfChildren}
-              updatePackageCost={this.updatePackageCost}
+              updateOption={this.updateOption}
+              currentOptions={this.state.options}
             />
-            <BalloonInstallations updateOption={this.updateOption} />
-            <AdditionalPartyServices updateOption={this.updateOption} />
+            <BalloonInstallations
+              updateOption={this.updateOption}
+              currentOptions={this.state.options}
+            />
+            <AdditionalPartyServices
+              updateOption={this.updateOption}
+              currentOptions={this.state.options}
+            />
           </Blocks>
           <SideBar>
             <Sticky>

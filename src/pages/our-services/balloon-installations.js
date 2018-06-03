@@ -14,7 +14,7 @@ const data = {
 
 export default () => {
   return (
-    <OurServicesTemplate {...data}>
+    <OurServicesTemplate {...data} banner="/images/banner9.jpg">
       <h5>Balloon installations:</h5>
       <p>
         Balloon arch

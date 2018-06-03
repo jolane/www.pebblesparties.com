@@ -13,7 +13,7 @@ import StartPlanningPanel from './StartPlanningPanel'
 export default props => (
   <Wrapper>
     <Nav />
-    <Banner />
+    <Banner image={props.banner} />
     <Heading image={props.image}>{props.title}</Heading>
     {Array.isArray(props.subTitle) ? (
       props.subTitle.map(item => <SubHeading>{item}</SubHeading>)

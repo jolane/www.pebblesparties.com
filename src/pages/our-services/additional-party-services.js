@@ -12,7 +12,7 @@ const data = {
 
 export default () => {
   return (
-    <OurServicesTemplate {...data}>
+    <OurServicesTemplate {...data} banner="/images/banner4.jpg">
       <h5>Face painting:</h5>
       <table>
         <tr>

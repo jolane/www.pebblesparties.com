@@ -17,14 +17,20 @@ import Spacer from '../components/Spacer'
 import LightBackground from '../components/LightBackground'
 import Textimonials from '../components/Testimonials/Testimonials'
 import GalleryInclude from '../components/GalleryInclude'
+import Slider from '../components/Slider'
 import gallery from './gallery'
 
 const IndexPage = ({ data }) => (
   <div>
     <Nav />
-    <Banner
-      src="/images/secondary_banner.jpg"
-      alt="Banner Image, Little girl + pattern"
+    <Slider
+      slides={[
+        { src: '/images/banner1.jpg' },
+        { src: '/images/banner2.jpg' },
+        { src: '/images/banner3.jpg' },
+        { src: '/images/banner4.jpg' },
+        { src: '/images/banner5.jpg' },
+      ]}
     />
     <Spacer height="30" />
     <Heading>

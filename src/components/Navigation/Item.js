@@ -14,9 +14,10 @@ export default props => {
   return (
     <Item>
       <A
-        to={`/${slugify(navItem, { lower: true })}`}
+        to={navItem === 'Home' ? `/` : `/${slugify(navItem, { lower: true })}`}
         title={navItem}
         activeClassName="is-active"
+        exact
       >
         {navItem}
       </A>

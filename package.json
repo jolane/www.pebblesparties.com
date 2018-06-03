@@ -17,6 +17,7 @@
     "gatsby-source-filesystem": "^1.5.33",
     "gatsby-transformer-sharp": "^1.6.23",
     "hex-rgb": "^2.0.0",
+    "lodash": "^4.17.10",
     "polished": "^1.9.2",
     "prop-types": "^15.6.1",
     "ramda": "^0.25.0",

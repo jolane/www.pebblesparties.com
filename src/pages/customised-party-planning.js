@@ -14,7 +14,7 @@ export default () => {
   return (
     <div>
       <Nav />
-      <Banner />
+      <Banner image="/images/banner3.jpg" />
       <Spacer height={50} />
       <Heading>Customised Party Planning</Heading>
       <SubHeading dark>

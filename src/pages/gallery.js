@@ -11,7 +11,7 @@ import Spacer from '../components/Spacer'
 export default ({ data }) => (
   <Wrapper>
     <Nav />
-    <Banner />
+    <Banner image="/images/banner7.jpg" />
     <Spacer height={50} />
     <Heading>Gallery</Heading>
     <SubHeading>

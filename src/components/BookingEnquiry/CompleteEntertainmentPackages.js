@@ -22,47 +22,50 @@ class CompleteEntertainmentPackages extends React.Component {
       selectedPackage: null,
       selectedIncludes1: new Array(),
       selectedIncludes2: new Array(),
+      selectedIncludes3: new Array(),
     }
 
     this.updateSelectedPackage = this.updateSelectedPackage.bind(this)
-    this.updateIncludes1 = this.updateIncludes1.bind(this)
-    this.updateIncludes2 = this.updateIncludes2.bind(this)
+    this.getOptionValue = this.getOptionValue.bind(this)
+    this.updateOptions = this.updateOptions.bind(this)
   }
 
   updateSelectedPackage(selectedPackage) {
     this.setState({ selectedPackage })
-
     const parts = selectedPackage.split('|')
-
     this.props.updateNumberOfChildren(parseInt(parts[0], 10))
-    this.props.updatePackageCost(parseInt(parts[3], 10))
+    this.props.updateOption(
+      'Package',
+      parseInt(parts[3], 10),
+      `Package - Kids ${parts[0]} - Hours ${parts[1]}`
+    )
   }
 
-  updateIncludes1(value) {
-    if (this.state.selectedIncludes1.includes(value)) {
-      this.setState({
-        selectedIncludes1: this.state.selectedIncludes1.filter(v => v != value),
-      })
-    } else if (this.state.selectedIncludes1.length === 2) {
-      alert('You can only select 2 options')
-    } else {
-      this.setState({
-        selectedIncludes1: [...this.state.selectedIncludes1, value],
-      })
+  updateOptions(type, value) {
+    let isUnChecking = false
+
+    // you can always deselect
+    if (this.getOptionValue(type) === true) {
+      this.props.updateOption(type, null)
+      isUnChecking = true
+    }
+    const packagesSelected = this.props.currentOptions.filter(
+      item => /^package/.test(item.name) && item.value === 0
+    )
+
+    if (packagesSelected.length < 2) {
+      this.props.updateOption(type, value)
+    } else if (!isUnChecking) {
+      alert('You can only select 2 options.')
     }
   }
 
-  updateIncludes2(value) {
-    if (this.state.selectedIncludes2.includes(value)) {
-      this.setState({
-        selectedIncludes2: this.state.selectedIncludes2.filter(v => v != value),
-      })
-    } else if (this.state.selectedIncludes2.length === 2) {
-      alert('You can only select 2 options')
+  getOptionValue(name) {
+    const item = this.props.currentOptions.find(item => item.name === name)
+    if (item) {
+      return item.value === 0 ? true : null
     } else {
-      this.setState({
-        selectedIncludes2: [...this.state.selectedIncludes2, value],
-      })
+      return null
     }
   }
 
@@ -79,44 +82,71 @@ class CompleteEntertainmentPackages extends React.Component {
           Customised Party Planning page for more details.
         </p>
         <General larger>
-          <h3>Up to 15 kids:</h3>
+          <h3>Up to 10 - 15 kids:</h3>
           <Radio
             name="type"
-            value="15|1|1|200"
-            onClickRadio={e => this.updateSelectedPackage('15|1|1|200')}
-            checked={this.state.selectedPackage === '15|1|1|200'}
+            value="15|1|1|180"
+            onClickRadio={e => this.updateSelectedPackage('15|1|1|180')}
+            checked={this.state.selectedPackage === '15|1|1|180'}
             large
           >
-            1 hour part with 1 host = $200
+            1 hour part with 1 host = $180
           </Radio>
           <Indented>
             <h6>Includes 2 of the following</h6>
             <Checkbox
-              value="Face Painting"
-              checked={this.state.selectedIncludes1.includes('Face Painting')}
-              onClickCheckbox={() => this.updateIncludes1('Face Painting')}
+              onClickCheckbox={e =>
+                this.updateOptions('packageFacePainting', 0)
+              }
+              checked={!!this.getOptionValue('packageFacePainting')}
             >
               Face painting
             </Checkbox>
             <Checkbox
-              value="Balloon Twisting"
-              checked={this.state.selectedIncludes1.includes(
-                'Balloon Twisting'
-              )}
-              onClickCheckbox={() => this.updateIncludes1('Balloon Twisting')}
+              onClickCheckbox={e =>
+                this.updateOptions('packageBalloonTwisting', 0)
+              }
+              checked={!!this.getOptionValue('packageBalloonTwisting')}
             >
               Balloon Twisting
             </Checkbox>
             <Checkbox
-              value="Musical games and obstacle courses which all the kids can enjoy together"
-              checked={this.state.selectedIncludes1.includes(
-                'Musical games and obstacle courses which all the kids can enjoy together'
-              )}
-              onClickCheckbox={() =>
-                this.updateIncludes1(
-                  'Musical games and obstacle courses which all the kids can enjoy together'
-                )
+              onClickCheckbox={e => this.updateOptions('packageGames', 0)}
+              checked={!!this.getOptionValue('packageGames')}
+            >
+              Musical games and obstacle courses which all the kids can enjoy
+              together
+            </Checkbox>
+            <p>&bull; PLUS a gift bag for each child to take home</p>
+          </Indented>
+          <Radio
+            onClickRadio={e => this.updateSelectedPackage('15|1.5|1|240')}
+            checked={this.state.selectedPackage === '15|1.5|1|240'}
+            large
+          >
+            1.5 hour party with 1 host = $240
+          </Radio>
+          <Indented>
+            <h6>Includes 2 of the following</h6>
+            <Checkbox
+              onClickCheckbox={e =>
+                this.updateOptions('packageFacePainting', 0)
               }
+              checked={!!this.getOptionValue('packageFacePainting')}
+            >
+              Face painting
+            </Checkbox>
+            <Checkbox
+              onClickCheckbox={e =>
+                this.updateOptions('packageBalloonTwisting', 0)
+              }
+              checked={!!this.getOptionValue('packageBalloonTwisting')}
+            >
+              Balloon Twisting
+            </Checkbox>
+            <Checkbox
+              onClickCheckbox={e => this.updateOptions('packageGames', 0)}
+              checked={!!this.getOptionValue('packageGames')}
             >
               Musical games and obstacle courses which all the kids can enjoy
               together
@@ -125,12 +155,12 @@ class CompleteEntertainmentPackages extends React.Component {
           </Indented>
           <Radio
             name="type"
-            value="15|2|1|280"
-            onClickRadio={e => this.updateSelectedPackage('15|2|1|280')}
-            checked={this.state.selectedPackage === '15|2|1|280'}
+            value="15|2|1|320"
+            onClickRadio={e => this.updateSelectedPackage('15|2|1|320')}
+            checked={this.state.selectedPackage === '15|2|1|320'}
             large
           >
-            2 hour party with 1 host = $280
+            2 hour party with 1 host = $320
           </Radio>
           <Indented>
             <h6>Includes:</h6>
@@ -144,7 +174,7 @@ class CompleteEntertainmentPackages extends React.Component {
               <li>PLUS a gift bag for each child to take home</li>
             </ul>
           </Indented>
-          <h3>Up to 25 kids:</h3>
+          <h3>Up to 20 - 25 kids:</h3>
           <Radio
             name="type"
             value="25|1|2|325"
@@ -157,31 +187,24 @@ class CompleteEntertainmentPackages extends React.Component {
           <Indented>
             <h6>Includes 2 of the following</h6>
             <Checkbox
-              value="Face Painting"
-              checked={this.state.selectedIncludes2.includes('Face Painting')}
-              onClickCheckbox={() => this.updateIncludes2('Face Painting')}
+              onClickCheckbox={e =>
+                this.updateOptions('packageFacePainting', 0)
+              }
+              checked={!!this.getOptionValue('packageFacePainting')}
             >
               Face painting
             </Checkbox>
             <Checkbox
-              value="Balloon Twisting"
-              checked={this.state.selectedIncludes2.includes(
-                'Balloon Twisting'
-              )}
-              onClickCheckbox={() => this.updateIncludes2('Balloon Twisting')}
+              onClickCheckbox={e =>
+                this.updateOptions('packageBalloonTwisting', 0)
+              }
+              checked={!!this.getOptionValue('packageBalloonTwisting')}
             >
               Balloon Twisting
             </Checkbox>
             <Checkbox
-              value="Musical games and obstacle courses which all the kids can enjoy together"
-              checked={this.state.selectedIncludes2.includes(
-                'Musical games and obstacle courses which all the kids can enjoy together'
-              )}
-              onClickCheckbox={() =>
-                this.updateIncludes2(
-                  'Musical games and obstacle courses which all the kids can enjoy together'
-                )
-              }
+              onClickCheckbox={e => this.updateOptions('packageGames', 0)}
+              checked={!!this.getOptionValue('packageGames')}
             >
               Musical games and obstacle courses which all the kids can enjoy
               together
@@ -209,7 +232,7 @@ class CompleteEntertainmentPackages extends React.Component {
               <li>PLUS a gift bag for each child to take home</li>
             </ul>
           </Indented>
-          <h3>More than 30 kids:</h3>
+          <h3>More than 25 kids:</h3>
           <p>
             No problem! <Link to="/contact-us">Contact us</Link> today for a
             customised quote.

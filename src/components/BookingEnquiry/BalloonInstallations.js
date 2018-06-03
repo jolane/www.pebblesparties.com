@@ -24,22 +24,29 @@ const Table = styled.table`
 class BalloonInstallations extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {}
-
     this.updateOptions = this.updateOptions.bind(this)
+    this.getOptionValue = this.getOptionValue.bind(this)
   }
 
   updateOptions(type, value) {
     let val = null
-    if (this.state[type] === undefined) {
+    if (this.props.currentOptions[type] === undefined) {
       val = value
-    } else if (this.state[type] != value) {
+    } else if (this.props.currentOptions[type] != value) {
       val = value
     } else {
       val = null
     }
-    this.setState({ [type]: val })
     this.props.updateOption(type, value)
+  }
+
+  getOptionValue(name) {
+    const item = this.props.currentOptions.find(item => item.name === name)
+    if (item) {
+      return item.value
+    } else {
+      return null
+    }
   }
 
   render() {
@@ -59,52 +66,59 @@ class BalloonInstallations extends React.Component {
           like more details on our personalised installation options.
         </p>
         <Table>
-          <tr>
-            <td colSpan="2">
-              <Checkbox
-                onClickCheckbox={e => this.updateOptions('ballonArch', 400)}
-                checked={this.state.ballonArch != null}
-              >
-                Balloon arch
-              </Checkbox>
-            </td>
-            <td>$400</td>
-          </tr>
-          <tr>
-            <td colSpan="2">
-              <Checkbox
-                onClickCheckbox={e => this.updateOptions('balloonDisplay', 400)}
-                checked={this.state.balloonDisplay != null}
-              >
-                Helium balloon displays
-              </Checkbox>
-            </td>
-            <td>$400</td>
-          </tr>
-          <tr>
-            <td>
-              <Checkbox
-                onClickCheckbox={e => this.updateOptions('jumboBalloons', 35)}
-                checked={this.state.jumboBalloons != null}
-              >
-                JUMBO helium balloons
-              </Checkbox>
-            </td>
-            <td>
-              {[1, 2, 3, 4, 5].map(v => (
-                <Radio
-                  onClickRadio={e =>
-                    this.updateOptions('jumboBalloonsMultiplier', v)
-                  }
-                  checked={this.state.jumboBalloonsMultiplier === v}
-                  inline
+          <tbody>
+            <tr>
+              <td colSpan="2">
+                <Checkbox
+                  onClickCheckbox={e => this.updateOptions('ballonArch', 400)}
+                  checked={!!this.getOptionValue('ballonArch')}
                 >
-                  {v}
-                </Radio>
-              ))}
-            </td>
-            <td>$35 each</td>
-          </tr>
+                  Balloon arch
+                </Checkbox>
+              </td>
+              <td>$400</td>
+            </tr>
+            <tr>
+              <td colSpan="2">
+                <Checkbox
+                  onClickCheckbox={e =>
+                    this.updateOptions('balloonDisplay', 400)
+                  }
+                  checked={!!this.getOptionValue('balloonDisplay')}
+                >
+                  Helium balloon displays
+                </Checkbox>
+              </td>
+              <td>$400</td>
+            </tr>
+            <tr>
+              <td>
+                <Checkbox
+                  onClickCheckbox={e => this.updateOptions('jumboBalloons', 35)}
+                  checked={!!this.getOptionValue('jumboBalloons')}
+                >
+                  JUMBO helium balloons
+                </Checkbox>
+              </td>
+              <td>
+                {[1, 2, 3, 4, 5].map(v => (
+                  <Radio
+                    onClickRadio={e =>
+                      this.updateOptions('jumboBalloonsMultiplier', v)
+                    }
+                    key={v}
+                    checked={
+                      this.getOptionValue('jumboBalloonsMultiplier') === v
+                    }
+                    inline
+                  >
+                    {v}
+                  </Radio>
+                ))}
+              </td>
+              <td>$35 each</td>
+            </tr>
+          </tbody>
         </Table>
         <General>
           <p>

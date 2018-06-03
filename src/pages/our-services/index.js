@@ -13,7 +13,7 @@ export default () => (
   <div>
     <Nav />
     <Banner
-      src="/images/secondary_banner.jpg"
+      image="/images/banner4.jpg"
       alt="Banner Image, Little girl + pattern"
     />
     <Spacer height="50" />
