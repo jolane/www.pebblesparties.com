@@ -2,15 +2,16 @@ import React from 'react'
 import styled from 'styled-components'
 
 import { colors } from '../styles/theme'
+import media from '../styles/media'
 
 import Banner from '../components/Banner'
-import Nav from '../components/Navigation'
+import Navigation from '../components/Navigation'
 import General from '../components/General'
 import Testimonials from '../components/Testimonials/Testimonials'
 
 export default () => (
   <div>
-    <Nav />
+    <Navigation />
     <Banner
       image="/images/banner5.jpg"
       alt="Banner Image, Little girl + pattern"
@@ -100,6 +101,8 @@ const Grid = styled.div`
   grid-template-columns: repeat(auto-fit, minmax(50em, 1fr));
   grid-row-gap: 3em;
   grid-column-gap: 5em;
+  width: 94%;
+  position: relative;
 `
 
 const Profile = styled.div`

@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 import { colors } from '../../styles/theme'
+import media from '../../styles/media'
 
 export default props => (
   <Card>
@@ -24,6 +25,10 @@ const Card = styled.div`
   flex-direction: column;
   justify-content: center;
   text-align: center;
+  ${media.tablet`
+    width: 94%;
+    margin: 0 3%;
+  `};
 `
 
 const Text = styled.p`
@@ -36,6 +41,9 @@ const Text = styled.p`
   &:after {
     content: '”';
   }
+  ${media.tablet`
+    font-size: 2em;
+  `};
 `
 
 const Name = styled.p`

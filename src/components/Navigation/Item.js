@@ -5,6 +5,7 @@ import { rgba } from 'polished'
 import slugify from 'slugify'
 
 import { colors } from '../../styles/theme'
+import media from '../../styles/media'
 
 export default props => {
   const navItem =
@@ -45,10 +46,15 @@ export default props => {
 const Item = styled.li`
   list-style: none;
   height: 100%;
-  display: block;
+  display: inline-block;
   margin: 0;
   text-align: center;
   position: relative;
+  ${media.tablet`
+    height: auto;
+    width: 100%;
+    text-align: center;
+  `};
 `
 
 const A = styled(Link)`
@@ -75,6 +81,11 @@ const A = styled(Link)`
     padding: 0 0.5em;
   }
 
+  ${media.tablet`
+    font-size: 2.2em;
+    line-height: 2;
+  `};
+
   ${props =>
     props.sub &&
     `
@@ -88,6 +99,9 @@ const A = styled(Link)`
     @media all and (max-width: 1030px) {
       padding: 0.5em;
     }
+    @media all and (max-width: 768px) {
+      padding: 0;
+      font-family: 'BrandonGrotesqueWeb-Regular';
   `};
 `
 
@@ -98,8 +112,15 @@ const SubNav = styled.div`
   width: 100%;
   opacity: 0;
   visibility: hidden;
+  font-size: 0.8em
   *:hover > & {
     opacity: 1;
     visibility: visible;
   }
+  ${media.tablet`
+    margin-top: -1em;
+    position: static;
+    visibility: visible;
+    opacity: 1;
+  `};
 `

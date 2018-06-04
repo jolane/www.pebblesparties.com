@@ -4,6 +4,8 @@ import Link from 'gatsby-link'
 import Sticky from 'react-sticky-el'
 import ReactDOM from 'react-dom'
 
+import media from '../styles/media'
+
 import Nav from '../components/Navigation'
 import Banner from '../components/Banner'
 import Heading from '../components/Heading'
@@ -159,9 +161,12 @@ const SideBar = styled.div`
 const Grid = styled.div`
   display: grid;
   grid-template-columns: 1fr 350px;
-  width: 95%;
+  width: 94%;
   max-width: 118em;
   margin: 0 auto;
+  ${media.tablet`
+    grid-template-columns: 1fr;
+  `};
 `
 
 const Indented = styled.div`

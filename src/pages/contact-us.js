@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import media from '../styles/media'
+
 import Nav from '../components/Navigation'
 import Banner from '../components/Banner'
 import Heading from '../components/Heading'
@@ -56,9 +58,17 @@ export default () => {
 
 const Grid = styled.div`
   max-width: 118em;
-  width: 100%;
+  width: 94%;
   margin: 0 auto 6em;
   display: grid;
   grid-template-columns: 0.9fr 0.9fr 1.2fr;
   grid-column-gap: 2em;
+
+  ${media.tablet`
+    grid-template-columns: 1fr;
+    grid-column-gap: 0;
+    & > * {
+      margin-bottom: 3vw;;
+    }
+  `};
 `

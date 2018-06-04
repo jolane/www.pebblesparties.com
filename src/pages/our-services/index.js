@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import Nav from '../../components/Navigation'
+import Navigation from '../../components/Navigation'
 import Banner from '../../components/Banner'
 import Spacer from '../../components/Spacer'
 import Heading from '../../components/Heading'
@@ -11,7 +11,7 @@ import Testimonials from '../../components/Testimonials/Testimonials'
 
 export default () => (
   <div>
-    <Nav />
+    <Navigation />
     <Banner
       image="/images/banner4.jpg"
       alt="Banner Image, Little girl + pattern"

@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 import { colors, sizes } from '../../styles/theme'
+import media from '../../styles/media'
 
 import ServicesCard from './ServicesCard'
 import SuperHeading from '../SuperHeading'
@@ -63,4 +64,10 @@ const Wrapper = styled.div`
   grid-auto-columns: min-content;
   grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
   grid-column-gap: 3.6em;
+  ${media.tablet`
+    width: 94%;
+    position: relative;
+    margin: auto;
+
+  `};
 `

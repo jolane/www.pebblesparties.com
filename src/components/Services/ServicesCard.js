@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import Link from 'gatsby-link'
 
 import { colors } from '../../styles/theme'
+import media from '../../styles/media'
 
 export default props => (
   <Card {...props}>
@@ -41,6 +42,9 @@ const Card = styled(Link)`
 		background-color: ${colors.secondary};
 		background-image: url('/images/${props => props.hover}');
 	}
+  ${media.tablet`
+    margin-bottom: 3vw;
+  `};
 `
 
 const Extra = styled.div`

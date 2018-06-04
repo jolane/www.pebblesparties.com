@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import media from '../styles/media'
+
 import Banner from '../components/Banner'
 import Nav from '../components/Navigation'
 import Heading from '../components/Heading'
@@ -96,4 +98,8 @@ const Grid = styled.div`
   justify-content: space-between;
   grid-column-gap: 6em;
   display: grid;
+  ${media.tablet`
+    grid-template-columns: 1fr;
+    grid-column-gap: 0;
+  `};
 `

@@ -2,6 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import Link from 'gatsby-link'
 
+import media from '../styles/media'
+
 import Nav from './Navigation'
 import Banner from './Banner'
 import Heading from './Heading'
@@ -39,7 +41,7 @@ const Wrapper = styled.section`
 `
 
 const Grid = styled.div`
-  width: 95%;
+  width: 94%;
   max-width: 118em;
   position: relative;
   margin: 0 auto;
@@ -47,4 +49,12 @@ const Grid = styled.div`
   grid-template-columns: minmax(auto, 50em) 35em;
   justify-content: space-between;
   grid-column-gap: 8em;
+
+  ${media.tablet`
+    grid-template-columns: 1fr;
+    grid-column-gap: 0;
+    &>*:last-child {
+      margin-top: 3vw;
+    }
+  `};
 `

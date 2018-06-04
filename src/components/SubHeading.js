@@ -15,6 +15,7 @@ const Heading = styled.h3`
   max-width: 40em;
   position: relative;
   margin: 1em auto;
+  width: 94%;
   ${props =>
     props.dark &&
     `

@@ -2,6 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import { path } from 'ramda'
 
+import media from '../../styles/media'
+import { colors } from '../../styles/theme'
 import Item from './Item'
 
 export const items = [
@@ -19,17 +21,39 @@ export const items = [
   'Contact us',
 ]
 
-export default props => (
-  <Nav>
-    <List>{items.map((v, i) => <Item key={v}>{v}</Item>)}</List>
-  </Nav>
-)
+class Navigation extends React.Component {
+  render() {
+    return (
+      <Nav>
+        <Close />
+        <List>{items.map((v, i) => <Item key={v}>{v}</Item>)}</List>
+      </Nav>
+    )
+  }
+}
+export default Navigation
 
 const Nav = styled.nav`
   width: 100%;
   position: absolute;
   width: 100%;
   z-index: 5;
+  ${media.tablet`
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    background-color: ${colors.primary};
+    z-index: 1001;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
+    body.nav-open & {
+      opacity: 1;
+      visibility: visible;
+    }
+  `};
 `
 
 const List = styled.ul`
@@ -43,4 +67,45 @@ const List = styled.ul`
   grid-auto-flow: column dense;
   grid-template-rows: 1fr;
   padding: 0;
+  ${media.tablet`
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  `};
+`
+const Close = styled.div`
+  position: absolute;
+  top: 2em;
+  right: 2em;
+  height: 40px;
+  width: 40px;
+  color: white;
+  z-index: 5;
+  cursor: pointer;
+  display: none;
+
+  &:after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: currentColor;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: rotate(45deg) translateY(-50%);
+  }
+  &:before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: currentColor;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: rotate(-45deg) translateY(-50%);
+  }
 `
