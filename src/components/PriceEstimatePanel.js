@@ -20,6 +20,25 @@ export default props => (
     <Spacer height={20} />
     <HighlightBox>
       <SuperHeading>Submit Enquiry</SuperHeading>
+      <form action="">
+        <Field>
+          <Label>Name*</Label>
+          <Input type="text" />
+        </Field>
+        <Field>
+          <Label>Email address *</Label>
+          <Input type="email" />
+        </Field>
+        <Field>
+          <Label>Phone number *</Label>
+          <Input type="text" />
+        </Field>
+        <Field>
+          <Label>Proposed date of the party *</Label>
+          <Input type="text" />
+        </Field>
+        <Submit>Submit enquiry</Submit>
+      </form>
     </HighlightBox>
   </Wrapper>
 )
@@ -45,4 +64,37 @@ const PriceField = styled.div`
   &:before {
     content: '$';
   }
+`
+
+const Field = styled.div`
+  margin-bottom: 2em;
+`
+
+const Label = styled.label`
+  font-size: 1.4em;
+  display: block;
+  text-align: left;
+  margin-bottom: 0.3em;
+`
+
+const Input = styled.input`
+  border: none;
+  background-color: white;
+  display: block;
+  height: 1.7em;
+  font-size: 2.3em;
+  font-weight: 800;
+  width: 100%;
+  color: ${colors.secondary};
+  padding-left: 0.6em;
+  box-sizing: border-box;
+`
+const Submit = styled.button`
+  background-color: ${colors.primary}
+  color: ${colors.white};
+  font-size: 2.3em;
+  border: 0;
+  font-family: 'BrandonGrotesqueWeb-Bold';
+  padding: 0.5em 2em;
+  display: block;
 `
