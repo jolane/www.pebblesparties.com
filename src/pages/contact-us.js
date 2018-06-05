@@ -16,7 +16,7 @@ export default () => {
     <div>
       <Nav />
       <Banner
-        image="/images/banner2.jpg"
+        image="/images/banner14.jpg"
         alt="Banner Image, Little girl + pattern"
       />
       <Spacer height="50" />

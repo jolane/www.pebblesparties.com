@@ -15,7 +15,7 @@ const data = {
 
 export default () => {
   return (
-    <OurServicesTemplate {...data} banner="/images/banner5.jpg">
+    <OurServicesTemplate {...data} banner="/images/banner8.jpg">
       <h3 className="dark">Up to 10 - 15 kids:</h3>
       <h5>1 hour party with 1 host = $180</h5>
       <p>

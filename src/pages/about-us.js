@@ -13,7 +13,7 @@ export default () => (
   <div>
     <Navigation />
     <Banner
-      image="/images/banner5.jpg"
+      image="/images/banner6.jpg"
       alt="Banner Image, Little girl + pattern"
     />
     <Grid>
