@@ -137,7 +137,7 @@ class BookingPage extends React.Component {
             />
           </Blocks>
           <SideBar>
-            <Sticky>
+            <Sticky topOffset={40}>
               <PriceEstimatePanel
                 pricePerChild={pricePerChild.toFixed(2)}
                 totalPrice={totalCost}
@@ -157,10 +157,13 @@ const Blocks = styled.form`
 `
 const SideBar = styled.div`
   height: 100%;
+  position: relative;
+  z-index: 1001;
 `
 const Grid = styled.div`
   display: grid;
   grid-template-columns: 1fr 350px;
+  grid-column-gap: 50px;
   width: 94%;
   max-width: 118em;
   margin: 0 auto;

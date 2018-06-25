@@ -75,6 +75,7 @@ const Inner = styled.div`
 	position: relative;
 	margin: 0 auto;
 	display: flex;
+  justify-content: space-between;
 
 	& p {
 		font-size: 1.6em;

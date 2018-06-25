@@ -21,12 +21,23 @@ export const items = [
   'Contact us',
 ]
 
+const removeNavOpen = () => {
+  const bodyEl = document.querySelector('body')
+  bodyEl.classList.remove('nav-open')
+}
+
 class Navigation extends React.Component {
   render() {
     return (
       <Nav>
         <Close />
-        <List>{items.map((v, i) => <Item key={v}>{v}</Item>)}</List>
+        <List>
+          {items.map((v, i) => (
+            <Item onClick={removeNavOpen()} key={v}>
+              {v}
+            </Item>
+          ))}
+        </List>
       </Nav>
     )
   }
