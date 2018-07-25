@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 import media from '../styles/media'
 
-import Nav from '../components/Navigation'
+import Navigation from '../components/Navigation'
 import Banner from '../components/Banner'
 import Heading from '../components/Heading'
 import SubHeading from '../components/SubHeading'
@@ -11,10 +11,10 @@ import Spacer from '../components/Spacer'
 import General from '../components/General'
 import ContactForm from '../components/ContactForm'
 
-export default () => {
+export default ({ navOpen, closeNav }) => {
   return (
     <div>
-      <Nav />
+      <Navigation navOpen={navOpen} closeNav={closeNav} />
       <Banner
         image="/images/banner14.jpg"
         alt="Banner Image, Little girl + pattern"

@@ -3,14 +3,14 @@ import styled from 'styled-components'
 import Img from 'gatsby-image'
 
 import Banner from '../components/Banner'
-import Nav from '../components/Navigation'
+import Navigation from '../components/Navigation'
 import Heading from '../components/Heading'
 import SubHeading from '../components/SubHeading'
 import Spacer from '../components/Spacer'
 
-export default ({ data }) => (
+export default ({ data, navOpen, closeNav }) => (
   <Wrapper>
-    <Nav />
+    <Navigation navOpen={this.props.navOpen} closeNav={closeNav} />
     <Banner image="/images/banner12.jpg" />
     <Spacer height={50} />
     <Heading>Gallery</Heading>

@@ -8,7 +8,7 @@ import { colors } from '../styles/theme'
 import Heading from '../components/Heading'
 import SubHeading from '../components/SubHeading'
 import SuperHeading from '../components/SuperHeading'
-import Nav from '../components/Navigation'
+import Navigation from '../components/Navigation'
 import Banner from '../components/Banner'
 import Arrow from '../components/Arrow'
 import SocialMediaIcons from '../components/SocialMediaIcon'
@@ -20,9 +20,9 @@ import GalleryInclude from '../components/GalleryInclude'
 import Slider from '../components/Slider'
 import gallery from './gallery'
 
-const IndexPage = ({ data }) => (
+const IndexPage = ({ data, navOpen, closeNav }) => (
   <div>
-    <Nav />
+    <Navigation navOpen={navOpen} closeNav={closeNav} />
     <Slider
       slides={[
         { src: '/images/banner1.jpg' },

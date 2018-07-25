@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import Logo from '../Logo'
 import Hamburger from '../Hamburger'
 
-const Header = () => (
+const Header = ({ openNav, closeNav, navOpen }) => (
   <Container>
     <h1 style={{ margin: 0 }}>
       <Link
@@ -18,7 +18,7 @@ const Header = () => (
         <Logo />
       </Link>
     </h1>
-    <Hamburger />
+    <Hamburger openNav={openNav} closeNav={closeNav} navOpen={navOpen} />
   </Container>
 )
 

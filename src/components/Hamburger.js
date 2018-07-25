@@ -18,9 +18,11 @@ const Container = styled.div`
   	display: block;
 	`};
 
-  body.nav-open & {
+  ${props =>
+    props.navOpen &&
+    `
     color: white;
-  }
+    `};
 `
 
 const Line = styled.div`
@@ -34,65 +36,58 @@ const Line = styled.div`
   &:nth-child(1) {
     top: 0;
     transition: top 0.2s linear 0.2s, transform 0.2s linear 0s;
-    body.nav-open & {
+    ${props =>
+      props.navOpen &&
+      `
       top: 50%;
       margin-top: -0.2rem;
       transform: rotate(45deg);
       transition: top 0.2s linear, transform 0.2s linear 0.2s;
-    }
+    `};
   }
 
   &:nth-child(2) {
     top: 50%;
     transition: transform 0.2s linear 0s;
     margin-top: -0.2rem;
-    body.nav-open & {
+    ${props =>
+      props.navOpen &&
+      `
       transform: rotate(-45deg);
       transition: transform 0.2s linear 0.2s;
-    }
+    `};
   }
 
   &:nth-child(3) {
     top: 100%;
     transition: top 0.2s linear 0.2s, transform 0.2s linear 0s;
     margin-top: -0.4rem;
-    body.nav-open & {
+    ${props =>
+      props.navOpen &&
+      `
       top: 50%;
       margin-top: -0.2rem;
       transform: rotate(-45deg);
       transition: top 0.2s linear, transform 0.2s linear 0.2s;
-    }
+    `};
   }
 `
 
-class Hamburger extends React.Component {
-  constructor(props) {
-    super(props)
-
-    this.toggleNav = this.toggleNav.bind(this)
-  }
-
-  toggleNav() {
-    const body = document.querySelector('body')
-    if (body.classList.contains('nav-open')) {
-      body.classList.remove('nav-open')
-    } else {
-      body.classList.add('nav-open')
-    }
-  }
-  render() {
-    return (
-      <Container
-        onClick={e => {
-          this.toggleNav()
-        }}
-      >
-        <Line />
-        <Line />
-        <Line />
-      </Container>
-    )
-  }
-}
+const Hamburger = ({ openNav, closeNav, navOpen }) => (
+  <Container
+    onClick={() => {
+      if (navOpen) {
+        closeNav()
+      } else {
+        openNav()
+      }
+    }}
+    navOpen={navOpen}
+  >
+    <Line navOpen={navOpen} />
+    <Line navOpen={navOpen} />
+    <Line navOpen={navOpen} />
+  </Container>
+)
 
 export default Hamburger

@@ -26,22 +26,19 @@ const removeNavOpen = () => {
   bodyEl.classList.remove('nav-open')
 }
 
-class Navigation extends React.Component {
-  render() {
-    return (
-      <Nav>
-        <Close />
-        <List>
-          {items.map((v, i) => (
-            <Item onClick={removeNavOpen()} key={v}>
-              {v}
-            </Item>
-          ))}
-        </List>
-      </Nav>
-    )
-  }
-}
+const Navigation = ({ navOpen, closeNav }) => (
+  <Nav navOpen={navOpen}>
+    <Close />
+    <List>
+      {items.map((v, i) => (
+        <Item onClick={() => closeNav()} key={v}>
+          {v}
+        </Item>
+      ))}
+    </List>
+  </Nav>
+)
+
 export default Navigation
 
 const Nav = styled.nav`
@@ -60,10 +57,12 @@ const Nav = styled.nav`
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s;
-    body.nav-open & {
+    ${props =>
+      props.navOpen &&
+      `
       opacity: 1;
       visibility: visible;
-    }
+    `};
   `};
 `
 

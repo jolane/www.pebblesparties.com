@@ -9,9 +9,9 @@ import Navigation from '../components/Navigation'
 import General from '../components/General'
 import Testimonials from '../components/Testimonials/Testimonials'
 
-export default () => (
+export default ({ navOpen, closeNav }) => (
   <div>
-    <Navigation />
+    <Navigation navOpen={navOpen} closeNav={closeNav} />
     <Banner
       image="/images/banner6.jpg"
       alt="Banner Image, Little girl + pattern"

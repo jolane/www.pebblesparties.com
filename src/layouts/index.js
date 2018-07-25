@@ -45,26 +45,53 @@ injectGlobal`
   }
 `
 
-const TemplateWrapper = ({ children }) => (
-  <ThemeProvider theme={theme}>
-    <div>
-      <Helmet
-        title="Pebbles Parties"
-        meta={[
-          {
-            name: 'description',
-            content:
-              "Professional and highly-trained kids' party entertainment. Facepainting, balloons, games, catering and more! Custom packages to suit all occasions and budget.",
-          },
-          { name: 'keywords', content: 'sample, something' },
-        ]}
-      />
-      <Header />
-      <div>{children()}</div>
-      <Footer />
-    </div>
-  </ThemeProvider>
-)
+class TemplateWrapper extends React.Component {
+  constructor() {
+    super()
+    this.state = {
+      navOpen: false,
+    }
+
+    this.openNav = this.openNav.bind(this)
+    this.closeNav = this.closeNav.bind(this)
+  }
+
+  openNav() {
+    const navOpen = true
+    this.setState({ navOpen })
+  }
+
+  closeNav() {
+    const navOpen = false
+    this.setState({ navOpen })
+  }
+
+  render() {
+    const { children } = this.props
+    const { navOpen } = this.state
+    const { openNav, closeNav } = this
+    return (
+      <ThemeProvider theme={theme}>
+        <div>
+          <Helmet
+            title="Pebbles Parties"
+            meta={[
+              {
+                name: 'description',
+                content:
+                  "Professional and highly-trained kids' party entertainment. Facepainting, balloons, games, catering and more! Custom packages to suit all occasions and budget.",
+              },
+              { name: 'keywords', content: 'sample, something' },
+            ]}
+          />
+          <Header navOpen={navOpen} closeNav={closeNav} openNav={openNav} />
+          <div>{children({ ...this.props, navOpen, openNav, closeNav })}</div>
+          <Footer />
+        </div>
+      </ThemeProvider>
+    )
+  }
+}
 
 TemplateWrapper.propTypes = {
   children: PropTypes.func,

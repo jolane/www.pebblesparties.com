@@ -3,8 +3,8 @@ import styled from 'styled-components'
 
 import media from '../styles/media'
 
+import Navigation from '../components/Navigation'
 import Banner from '../components/Banner'
-import Nav from '../components/Navigation'
 import Heading from '../components/Heading'
 import SubHeading from '../components/SubHeading'
 import Spacer from '../components/Spacer'
@@ -12,10 +12,10 @@ import General from '../components/General'
 import ContactForm from '../components/ContactForm'
 import HighlightBox from '../components/HighlightBox'
 
-export default () => {
+export default ({ navOpen, closeNav }) => {
   return (
     <div>
-      <Nav />
+      <Navigation navOpen={navOpen} closeNav={closeNav} />
       <Banner image="/images/banner11.jpg" />
       <Spacer height={50} />
       <Heading>Customised Party Planning</Heading>

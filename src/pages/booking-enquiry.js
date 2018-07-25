@@ -6,7 +6,7 @@ import ReactDOM from 'react-dom'
 
 import media from '../styles/media'
 
-import Nav from '../components/Navigation'
+import Navigation from '../components/Navigation'
 import Banner from '../components/Banner'
 import Heading from '../components/Heading'
 import SubHeading from '../components/SubHeading'
@@ -107,7 +107,10 @@ class BookingPage extends React.Component {
 
     return (
       <div>
-        <Nav />
+        <Navigation
+          navOpen={this.props.navOpen}
+          closeNav={this.props.closeNav}
+        />
         <Banner
           image="/images/banner13.jpg"
           alt="Banner Image, Little girl + pattern"
