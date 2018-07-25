@@ -10,7 +10,7 @@ import Spacer from '../components/Spacer'
 
 export default ({ data, navOpen, closeNav }) => (
   <Wrapper>
-    <Navigation navOpen={this.props.navOpen} closeNav={closeNav} />
+    <Navigation navOpen={navOpen} closeNav={closeNav} />
     <Banner image="/images/banner12.jpg" />
     <Spacer height={50} />
     <Heading>Gallery</Heading>
