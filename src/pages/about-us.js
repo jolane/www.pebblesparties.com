@@ -43,13 +43,8 @@ export default ({ navOpen, closeNav }) => (
       <div>
         <General>
           <h3>A little bit about me...</h3>
-          <p>Hi, I’m Bek!</p>
           <p>
-            I’ve been working with kids my whole life. I'm an experienced
-            children's entertainer and party planner. I've also worked as a
-            children's dance instructor, camp counsellor, disability support
-            worker, and have owned and operated a successful cafe and catering
-            business. And now I’m lucky enough to have Pebbles Parties!
+            I’m Bek! And as a mum of two awesome kids, I know personally that taking the stress out of party planning has allowed me to fully enjoy those important moments. Whatever your reason for celebrating, you want to be present, not just wrangling the presents.
           </p>
           <p>
             For me, it’s all about interacting with people, making kids feel
@@ -60,27 +55,27 @@ export default ({ navOpen, closeNav }) => (
             moments.
           </p>
           <p>
-            Pebbles Parties is a real passion of mine- it’s allowed me to make a
-            living from what I love doing most. I love my team too, a trusted
-            group of the most excellent party hosts who never let me down! It’s
-            so exciting to see how the business keeps on growing and changing as
-            we cater for each unique child we meet - that’s what keeps it fresh
-            for me. So if you have a special request, send them in, I love
-            creative ideas and would love to tailor a party that suits your
-            child.
+            I’ve been working with kids my whole life. I’m an experienced children’s entertainer and party planner. I’ve also worked as a children’s dance instructor, camp counsellor, disability support worker, and owned and operated a café and catering business. Now, I’m lucky enough to host your Pebbles Party!
+          </p>
+          <p>
+            For me, it’s all about making kids feel like they’re the most clever, funny and special little people on earth. Creating moments of joy they’ll never forget.
+          </p>
+          <p>
+            Pebbles Parties is a real passion of mine. I love my team, too! Their the most excellent party hosts who never let me down. It’s so exciting to see how Pebbles Parties adapts as we cater for each unique child we meet – that’s what keeps it fresh for me. So if you have a special request, send it in, I adore creative ideas and would love to tailor a party that perfectly suits your child.
           </p>
 
           <h5>We organise:</h5>
           <ul>
-            <li>Children’s party entertainment</li>
-            <li>Themed party set-ups</li>
-            <li>Costumed character appearances</li>
+            <li>Full Party Packages </li>
             <li>Children’s entertainment for weddings</li>
             <li>Children’s entertainment for school events</li>
             <li>Children’s entertainment for corporate events</li>
+            <li>Balloon Installations</li>
+            <li>Streamer Walls </li>
           </ul>
           <h5>We work with:</h5>
           <ul>
+	          <li>Parents </li>
             <li>Wedding planners</li>
             <li>Event organisers</li>
             <li>School communities</li>
